@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='extended_beauty.css') }}" />
+{% endblock %}
+
+{% block content %}
+<div id="intro" class="text-center">
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class="notification is-success">
+        {{ messages[0] }}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+  <!-- Welcome Note -->
+  <h1 class="display-4 font-weight-bold mb-3">👋 Welcome to Push-Ups Logger!</h1>
+  <p class="lead mb-4 px-3">
+    In today's digital age where screen time often replaces physical activity, 
+    maintaining a regular exercise routine is more important than ever.
+    Push-ups are a perfect way to break free from the screen revolution—they require no equipment, 
+    can be done anywhere, and provide a full-body workout. 
+    This app helps you track your progress, set goals, and stay motivated!
+  </p>
+
+  <!-- Push-Up Animation Video -->
+  <div class="embed-responsive embed-responsive-16by9 mb-4">
+    <video class="embed-responsive-item" autoplay muted loop playsinline>
+      <source src="{{ url_for('static', filename='images/6388436-uhd_3840_2160_25fps.mp4') }}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+{% endblock %}
